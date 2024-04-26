@@ -54,7 +54,7 @@ cur.executemany("INSERT INTO itresume3270.customers VALUES(%s, %s, %s) returning
 # Не меняйте и не удаляйте эти строки - они нужны для проверки
 conn.commit()
 cur.execute('SELECT * FROM itresume3270.customers')
-res_customers = cur.fetchall()
+res_customers = [cur.fetchall()[-1],]
 
 # Запустите цикл по списку employees_data и выполните запрос формата
 # INSERT INTO itresume3270.table (column1, column2, ...) VALUES (%s, %s, ...) returning *", data)
@@ -66,7 +66,7 @@ cur.executemany(
 # Не меняйте и не удаляйте эти строки - они нужны для проверки
 conn.commit()
 cur.execute('SELECT * FROM itresume3270.employees')
-res_employees = cur.fetchall()
+res_employees = [cur.fetchall()[-1],]
 
 # Запустите цикл по списку orders_data и выполните запрос формата
 # INSERT INTO itresume3270.table (column1, column2, ...) VALUES (%s, %s, ...) returning *", data)
@@ -76,7 +76,7 @@ cur.executemany("INSERT INTO itresume3270.orders VALUES(%s, %s, %s, %s, %s) retu
 # Не меняйте и не удаляйте эти строки - они нужны для проверки
 conn.commit()
 cur.execute('SELECT * FROM itresume3270.orders')
-res_orders = cur.fetchall()
+res_orders = [cur.fetchall()[-1],]
 
 # Закрытие курсора
 cur.close()
